@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-xs: 425px;
+
+  --color-primary: #1c2a45;
+  --color-accent: #0366b3;
+  --color-secondary: #fbff00;
+  --color-secondary-2: #112b65;
+  --color-background: #0d131f;
+  --color-gray: #ccc;
+}
+
+@utility prose {
+  ul,
+  ol {
+    list-style: initial;
+    padding-inline-start: 40px;
+    margin: revert;
+  }
+
+  p {
+    font-size: revert;
+    font-weight: revert;
+    line-height: revert;
+    margin: revert;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: revert;
+    font-weight: revert;
+    line-height: revert;
+    margin: revert;
+  }
+
+  h2 {
+    @apply text-lg! lg:text-2xl! font-semibold! text-secondary-2! border-l-4 border-[#00adfe] pl-3;
+  }
+
+  h2 * {
+    @apply text-lg! lg:text-2xl! font-semibold! text-secondary-2!;
+  }
+
+  img {
+    @apply w-full!;
+  }
+
+  hr {
+    all: revert;
+  }
+
+  button,
+  input,
+  textarea {
+    all: revert;
+  }
+
+  table {
+    @apply lg:w-4/5! border border-gray! mx-auto;
+  }
+
+  tr {
+    @apply flex;
+  }
+
+  td {
+    @apply flex-1 flex justify-center items-center m-0! p-2! lg:p-3!;
+  }
+
+  tr {
+    @apply border-none!;
+  }
+
+  tr td,
+  tr td * {
+    @apply text-xs! lg:text-lg!;
+  }
+
+  tr td * {
+    @apply m-0! p-0!;
+  }
+
+  tr td:last-child {
+    @apply border-r-0!;
+  }
+
+  tr td:not(:last-child) {
+    @apply border-r border-gray!;
+  }
+
+  tr:first-child td,
+  tr:first-child td * {
+    @apply bg-secondary-2! text-white! text-sm! lg:text-lg! font-semibold!;
+  }
+
+  tr:not(:last-child) td {
+    @apply border-b border-gray!;
+  }
+}
+
+@utility container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @variant xs {
+    max-width: 425px;
+  }
+
+  @variant sm {
+    max-width: 640px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  @variant md {
+    max-width: 768px;
+  }
+
+  @variant lg {
+    max-width: 1024px;
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+  }
+
+  @variant xl {
+    max-width: 1280px;
+  }
+}

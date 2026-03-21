@@ -1,0 +1,363 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Language {
+  VI
+  EN
+}
+
+enum Role {
+  USER
+  EDITOR
+  ADMIN
+}
+
+enum Group {
+  ALWAYS_TAKE_CARE
+  TRUST_IN_MIND
+  KEEP_PROMISE
+
+  COMPANY
+  COMMUNITY
+}
+
+model User {
+  id        String   @id @default(cuid(2))
+  name      String   @db.VarChar(255)
+  username  String   @unique @db.VarChar(100)
+  password  String   @db.VarChar(255)
+  role      Role     @default(USER)
+  active    Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  posts Post[]
+
+  @@map("users")
+}
+
+model Banner {
+  id        String   @id @default(cuid(2))
+  key       String   @unique @db.VarChar(255)
+  name      String   @db.VarChar(255)
+  images    Json     @db.JsonB
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("banners")
+}
+
+model Setting {
+  id        String   @id @default(cuid(2))
+  key       String   @unique @db.VarChar(100)
+  value     Json?    @db.JsonB
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+  @@map("settings")
+}
+
+model Social {
+  id        String   @id @default(cuid(2))
+  name      String   @db.VarChar(255)
+  icon      String   @db.VarChar(255)
+  url       String   @db.VarChar(255)
+  visible   Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("socials")
+}
+
+model Partner {
+  id        String   @id @default(cuid(2))
+  name      String   @db.VarChar(255)
+  logo      String   @db.VarChar(255)
+  url       String   @db.VarChar(255)
+  visible   Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("partners")
+}
+
+model Benefit {
+  id        String   @id @default(cuid(2))
+  visible   Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  i18n BenefitI18n[]
+
+  @@map("benefits")
+}
+
+model BenefitI18n {
+  id        String   @id @default(cuid(2))
+  benefitId String
+  benefit   Benefit  @relation(fields: [benefitId], references: [id], onDelete: Cascade)
+  lang      Language
+  title     String   @db.VarChar(255)
+  items     Json?    @db.JsonB
+
+  @@unique([benefitId, lang])
+  @@index([benefitId])
+  @@index([lang])
+  @@map("benefit_i18n")
+}
+
+model Project {
+  id        String   @id @default(cuid(2))
+  thumbnail String   @db.VarChar(255)
+  visible   Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  i18n ProjectI18n[]
+
+  @@map("projects")
+}
+
+model ProjectI18n {
+  id        String   @id @default(cuid(2))
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  lang      Language
+  name      String   @db.VarChar(255)
+  details   Json?    @db.JsonB
+
+  @@unique([projectId, lang])
+  @@index([projectId])
+  @@index([lang])
+  @@map("project_i18n")
+}
+
+model Feedback {
+  id        String   @id @default(cuid(2))
+  star      Int      @db.Integer
+  avatar    String   @db.VarChar(255)
+  visible   Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  i18n FeedbackI18n[]
+
+  @@index([createdAt(sort: Desc)])
+  @@index([visible, createdAt(sort: Desc)])
+  @@map("feedbacks")
+}
+
+model FeedbackI18n {
+  id         String   @id @default(cuid(2))
+  feedbackId String
+  feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  lang       Language
+  name       String   @db.VarChar(100)
+  position   String   @db.VarChar(100)
+  content    String   @db.VarChar(255)
+
+  @@unique([feedbackId, lang])
+  @@index([lang])
+  @@map("feedback_i18n")
+}
+
+model Category {
+  id        String    @id @default(cuid(2))
+  parentId  String?
+  parent    Category? @relation("CategoryToChildren", fields: [parentId], references: [id], onDelete: SetNull)
+  slug      String    @unique @db.VarChar(255)
+  image     String?   @db.VarChar(255)
+  visible   Boolean   @default(false) @db.Boolean
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  children Category[]     @relation("CategoryToChildren")
+  i18n     CategoryI18n[]
+  products Product[]
+  posts    Post[]
+
+  @@index([parentId])
+  @@index([slug])
+  @@index([createdAt(sort: Desc)])
+  @@index([visible, createdAt(sort: Desc)])
+  @@map("categories")
+}
+
+model CategoryI18n {
+  id          String   @id @default(cuid(2))
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  lang        Language
+  name        String   @db.VarChar(255)
+  description String?  @db.Text
+
+  @@unique([categoryId, lang])
+  @@index([categoryId])
+  @@index([lang])
+  @@map("category_i18n")
+}
+
+model Product {
+  id         String    @id @default(cuid(2))
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  slug       String    @unique @db.VarChar(255)
+  images     Json      @db.JsonB
+  visible    Boolean   @default(false) @db.Boolean
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  i18n ProductI18n[]
+  tags ProductTag[]
+  pin  PinProduct?
+  top  TopProduct?
+
+  @@index([categoryId])
+  @@index([slug])
+  @@index([createdAt(sort: Desc)])
+  @@index([visible, createdAt(sort: Desc)])
+  @@map("products")
+}
+
+model ProductI18n {
+  id          String   @id @default(cuid(2))
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  lang        Language
+  name        String   @db.VarChar(255)
+  summary     String?  @db.VarChar(255)
+  description String?  @db.Text
+  features    Json?    @db.JsonB
+
+  @@unique([productId, lang])
+  @@index([productId])
+  @@index([lang])
+  @@map("product_i18n")
+}
+
+model PinProduct {
+  id        String   @id @default(cuid(2))
+  productId String   @unique
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  image     String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pin_products")
+}
+
+model TopProduct {
+  id        String   @id @default(cuid(2))
+  productId String   @unique
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  thumbnail String   @db.VarChar(255)
+  visible   Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("top_products")
+}
+
+model Tag {
+  id        String   @id @default(cuid(2))
+  slug      String   @unique @db.VarChar(255)
+  hot       Boolean  @default(false) @db.Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  i18n     TagI18n[]
+  posts    PostTag[]
+  products ProductTag[]
+
+  @@index([slug])
+  @@index([createdAt(sort: Desc)])
+  @@map("tags")
+}
+
+model TagI18n {
+  id    String   @id @default(cuid(2))
+  tagId String
+  tag   Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  lang  Language
+  name  String   @db.VarChar(255)
+
+  @@unique([tagId, lang])
+  @@index([tagId])
+  @@index([lang])
+  @@map("tag_i18n")
+}
+
+model Post {
+  id         String    @id @default(cuid(2))
+  authorId   String?
+  author     User?     @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  thumbnail  String?   @db.VarChar(255)
+  slug       String    @unique @db.VarChar(255)
+  group      Group
+  relate     Group[]   @default([])
+  hot        Boolean   @default(false) @db.Boolean
+  published  Boolean   @default(false) @db.Boolean
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  i18n PostI18n[]
+  tags PostTag[]
+
+  @@index([authorId])
+  @@index([slug])
+  @@index([createdAt(sort: Desc)])
+  @@index([published, createdAt(sort: Desc)])
+  @@map("posts")
+}
+
+model PostI18n {
+  id      String   @id @default(cuid(2))
+  postId  String
+  post    Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  lang    Language
+  title   String   @db.VarChar(255)
+  summary String?  @db.VarChar(255)
+  content String?  @db.Text
+
+  @@unique([postId, lang])
+  @@index([postId])
+  @@index([lang])
+  @@map("post_i18n")
+}
+
+model PostTag {
+  postId String
+  tagId  String
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@index([tagId])
+  @@map("post_tags")
+}
+
+model ProductTag {
+  productId String
+  tagId     String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([productId, tagId])
+  @@index([tagId])
+  @@map("product_tags")
+}

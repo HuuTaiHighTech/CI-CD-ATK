@@ -1,0 +1,170 @@
+{
+  "company_name": "AN THAI KHANG JSC",
+  "description": "An Thai Khang JSC specializes in manufacturing and distributing high-quality adhesives, silicones, and bonding solutions in Vietnam.",
+  "hot_keywords": "Hot keywords",
+  "filter_by_product": "Filter by product",
+  "related_products": "Related products",
+  "related_posts": "Related posts",
+  "detail": "Details",
+  "product_features": "Product features",
+  "others": "Others",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "insights": [
+    { "id": "always-take-care", "name": "Always Take Care" },
+    { "id": "trust-in-mind", "name": "Trust In Mind" },
+    { "id": "keep-promise", "name": "Keep Promise" }
+  ],
+  "activities": [
+    { "id": "company", "name": "Company Activities" },
+    { "id": "community", "name": "Community Activities" }
+  ],
+  "search": {
+    "text": "Search products or posts…",
+    "filter": "Filter",
+    "filter_title": "Filter by",
+    "empty": "No results found",
+    "filter_options": [
+      { "value": null, "label": "All" },
+      { "value": "product", "label": "Products" },
+      { "value": "insight", "label": "Industry Insights" },
+      { "value": "activity", "label": "Activities" }
+    ]
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "categories": "Categories",
+    "products": "Products",
+    "featured_projects": "Projects",
+    "insights": "Insights",
+    "activities": {
+      "title": "Activities",
+      "menu": {
+        "company": "Company Activities",
+        "community": "Community Activities"
+      }
+    },
+    "contact": "Contact",
+    "quoteNow": "Quote Now"
+  },
+  "slogan": ["THE BEST", "THE MOST", "THE FASTEST"],
+  "home": {
+    "title": "Home",
+    "description": "An Thai Khang Joint Stock Company specializes in high-quality solvent-based multipurpose adhesives, providing reliable bonding solutions for industrial and commercial applications."
+  },
+  "about": {
+    "title": "About Us",
+    "description": "An Thai Khang is a trusted company specializing in the research, manufacturing, and supply of high-quality solvent-based adhesives. With years of experience, we are committed to delivering reliable, durable, and efficient bonding solutions for a wide range of industrial and household applications."
+  },
+  "featured_projects": {
+    "title": "Featured Projects",
+    "description": "An Thai Khang’s featured projects showcase our expertise in research, manufacturing, and delivering high-quality bonding solutions that meet the stringent requirements of various industries and real-world applications."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Contact An Thai Khang for consultation, product information, and professional adhesive solutions tailored to your business needs.",
+    "heading": "Contact Us Now",
+    "form": {
+      "title": "Request a Quote",
+      "name": "Full name",
+      "phone": "Phone number",
+      "email": "Email",
+      "need": "Customer needs",
+      "product": "Product name",
+      "others": "Additional message",
+      "submit": "Send",
+      "submit_now": "Send Now",
+      "success": "Request submitted successfully!",
+      "error": "Request submission failed. Please try again."
+    },
+    "needs": [
+      "Become a distributor",
+      "Sales consultation",
+      "OEM/ODM services",
+      "Product support",
+      "Others"
+    ]
+  },
+  "box": [
+    {
+      "id": 1,
+      "title": "Introduction",
+      "description": "An Thai Khang was established by Vietnamese with the ambition to bring made-in-Vietnam adhesives worldwide, built on quality and credibility.",
+      "link": {
+        "href": "/about",
+        "text": "Learn more"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Products",
+      "description": "Built on the trust and continued support for Golden Dragon Adhesive, An Thai Khang has expanded its ecosystem to over 100 ISO 9001:2015-certificated products.",
+      "link": {
+        "href": "/categories",
+        "text": "Learn more"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Featured Projects",
+      "description": "An Thai Khang with the mission “Make Life Better” and six core values brings the best solutions to customers and partners.",
+      "link": {
+        "href": "/projects",
+        "text": "Learn more"
+      }
+    }
+  ],
+  "solution": {
+    "title": "One Destination For All Solutions",
+    "subtitle": "An Thai Khang brings excellent adhesive solutions with quality, safety, and efficiency — guided by the mission \"Make Life Better\"."
+  },
+  "top_products": {
+    "title": "Solutions for every projects",
+    "subtitle": "Explore our best-selling products"
+  },
+  "feedback": {
+    "title": "Client Testimonials",
+    "subtitle": "What our partners say about us"
+  },
+  "footer": {
+    "about": {
+      "title": "About An Thai Khang",
+      "items": [
+        { "id": 1, "name": "About us", "href": "/about" },
+        { "id": 2, "name": "Terms & Conditions", "href": "/terms" },
+        { "id": 3, "name": "Privacy Policy", "href": "/privacy" }
+      ]
+    },
+    "copyright": "An Thai Khang. All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms & Conditions"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "ATK Privacy Policy page, explaining how we collect and use user information.",
+    "content": "Nội dung trang chính sách bảo mật..."
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description": "ATK Terms of Service page, outlining the rights and obligations when using our service.",
+    "content": "Nội dung trang điều khoản..."
+  },
+  "badge": {
+    "gov": "Ministry of Industry and Trade Notification"
+  },
+  "prev": "Previous",
+  "next": "Next",
+  "address": {
+    "text": "91/18/5 Le Van Duyet Street, Gia Dinh Ward, Ho Chi Minh City, Vietnam",
+    "mapUrl": "https://maps.app.goo.gl/QijrcwPN4hTUNow57"
+  },
+  "consultation": {
+    "title": "Consultation & Support",
+    "content": [
+      "Contact An Thai Khang now for consultation & quotation.",
+      "We are always ready to support and respond quickly to ensure your confidence in purchasing."
+    ],
+    "button": "Contact Now"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "company_name": "CÔNG TY CỔ PHẦN AN THÁI KHANG",
+  "description": "An Thái Khang JSC là công ty chuyên sản xuất và phân phối keo dán, silicone và giải pháp kết dính chất lượng cao tại Việt Nam.",
+  "hot_keywords": "Từ khóa hot",
+  "filter_by_product": "Lọc theo sản phẩm",
+  "related_products": "Sản phẩm liên quan",
+  "related_posts": "Bài viết liên quan",
+  "detail": "Chi tiết",
+  "product_features": "Đặc trưng sản phẩm",
+  "others": "Khác",
+  "confirm": "Xác nhận",
+  "cancel": "Huỷ",
+  "insights": [
+    { "id": "always-take-care", "name": "Always Take Care" },
+    { "id": "trust-in-mind", "name": "Trust In Mind" },
+    { "id": "keep-promise", "name": "Keep Promise" }
+  ],
+  "activities": [
+    { "id": "company", "name": "Hoạt Động Công Ty" },
+    { "id": "community", "name": "Hoạt Động Xã Hội" }
+  ],
+  "search": {
+    "text": "Tìm kiếm sản phẩm hoặc bài viết...",
+    "filter": "Lọc",
+    "filter_title": "Lọc theo",
+    "empty": "Không tìm thấy kết quả",
+    "filter_options": [
+      { "value": null, "label": "Tất cả" },
+      { "value": "product", "label": "Sản phẩm" },
+      { "value": "insight", "label": "Insight ngành" },
+      { "value": "activity", "label": "Hoạt động" }
+    ]
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới Thiệu",
+    "categories": "Danh mục",
+    "products": "Sản Phẩm",
+    "featured_projects": "Dự Án Tiêu Biểu",
+    "insights": "Insight Ngành",
+    "activities": {
+      "title": "Hoạt Động",
+      "menu": {
+        "company": "Hoạt động công ty",
+        "community": "Hoạt động xã hội"
+      }
+    },
+    "contact": "Liên Hệ",
+    "quoteNow": "Nhận báo giá"
+  },
+  "slogan": ["TỐT NHẤT", "NHANH NHẤT", "HẾT SỨC"],
+  "home": {
+    "title": "Trang chủ",
+    "description": "An Thái Khang là công ty chuyên sản xuất và cung cấp keo dán đa năng gốc dung môi, mang đến giải pháp kết dính chất lượng cao cho ngành công nghiệp và dân dụng."
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "description": "An Thái Khang là doanh nghiệp uy tín trong lĩnh vực nghiên cứu, sản xuất và cung cấp keo dán gốc dung môi chất lượng cao. Với nhiều năm kinh nghiệm, chúng tôi cam kết mang đến các giải pháp kết dính hiệu quả, bền vững và phù hợp cho nhiều ngành công nghiệp và ứng dụng dân dụng."
+  },
+  "featured_projects": {
+    "title": "Dự án tiêu biểu",
+    "description": "Các dự án tiêu biểu của An Thái Khang thể hiện năng lực nghiên cứu, sản xuất và cung cấp giải pháp kết dính chất lượng cao, đáp ứng yêu cầu khắt khe của nhiều ngành công nghiệp và ứng dụng thực tế."
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "description": "Liên hệ An Thái Khang để được tư vấn sản phẩm keo dán, giải pháp kết dính và hỗ trợ kỹ thuật chuyên nghiệp.",
+    "heading": "Liên Hệ Ngay Với Chúng Tôi",
+    "form": {
+      "title": "Yêu Cầu Báo Giá",
+      "name": "Họ và tên",
+      "phone": "Số điện thoại",
+      "email": "Email",
+      "need": "Nhu cầu khách hàng",
+      "product": "Tên sản phẩm",
+      "others": "Lời nhắn khác",
+      "submit": "Gửi",
+      "submit_now": "Gửi Ngay",
+      "success": "Gửi yêu cầu thành công!",
+      "error": "Gửi yêu cầu thất bại. Vui lòng thử lại."
+    },
+    "needs": [
+      "Trở thành đại lý",
+      "Tư vấn mua hàng",
+      "Dịch vụ OEM/ODM",
+      "Hỗ trợ sản phẩm",
+      "Khác"
+    ]
+  },
+  "box": [
+    {
+      "id": 1,
+      "title": "Giới thiệu chung",
+      "description": "An Thái Khang hình thành và phát triển bởi một tập thể người Việt với khát vọng đưa sản phẩm keo dán \"made in Vietnam\" ra biển lớn, lấy chất lượng & uy tín làm nền móng vững chắc đảm bảo không thua kém bất kỳ thương hiệu quốc tế nào.",
+      "link": {
+        "href": "/about",
+        "text": "Xem chi tiết"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Sản phẩm",
+      "description": "Nối tiếp sự yêu thương của quý khách dành cho Keo Rồng Vàng, An Thái Khang tiếp tục mở rộng hệ sinh thái lên đến 100+ sản phẩm đạt chuẩn ISO 9001:2015.",
+      "link": {
+        "href": "/categories",
+        "text": "Xem chi tiết"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Dự Án Tiêu Biểu",
+      "description": "Tập thể An Thái Khang với sứ mệnh “Làm cho cuộc sống tốt đẹp hơn”, vận hành dựa trên 6 giá trị văn hóa Tín - Tâm - Trí - Tỉnh - Tinh - Nhân, luôn tự tin mang đến giá trị tốt nhất cho quý khách hàng và đối tác.",
+      "link": {
+        "href": "/projects",
+        "text": "Xem chi tiết"
+      }
+    }
+  ],
+  "solution": {
+    "title": "Một Điểm Đến - Vạn Giải Pháp",
+    "subtitle": "An Thái Khang mang đến giải pháp keo toàn diện, chất lượng, an toàn, hiệu quả - cùng bạn \"Làm cho cuộc sống tốt đẹp hơn\""
+  },
+  "top_products": {
+    "title": "Sản Phẩm Cho Mọi Công Trình",
+    "subtitle": "Khám phá các sản phẩm nổi bật của chúng tôi"
+  },
+  "feedback": {
+    "title": "Nhận Xét Khách Hàng",
+    "subtitle": "Những câu chuyện từ đối tác nói về chúng tôi"
+  },
+  "footer": {
+    "about": {
+      "title": "Về An Thái Khang",
+      "items": [
+        { "id": 1, "name": "Giới thiệu", "href": "/about" },
+        { "id": 2, "name": "Điều khoản", "href": "/terms" },
+        { "id": 3, "name": "Bảo mật", "href": "/privacy" }
+      ]
+    },
+    "copyright": "An Thái Khang. Bản quyền đã được bảo hộ",
+    "privacy_policy": "Chính sách bảo mật",
+    "terms_of_service": "Điều khoản dịch vụ"
+  },
+  "privacy": {
+    "title": "Chính sách bảo mật",
+    "description": "Trang Chính sách bảo mật của ATK, giải thích cách chúng tôi thu thập và sử dụng thông tin người dùng.",
+    "content": "Nội dung trang chính sách bảo mật..."
+  },
+  "terms": {
+    "title": "Điều khoản",
+    "description": "Trang Điều khoản sử dụng của ATK, quy định quyền và nghĩa vụ khi sử dụng dịch vụ.",
+    "content": "Nội dung trang điều khoản..."
+  },
+  "badge": {
+    "gov": "Đã thông báo Bộ Công Thương"
+  },
+  "prev": "Trước",
+  "next": "Sau",
+  "address": {
+    "text": "91/18/5 Lê Văn Duyệt, Phường Gia Định, TP. Hồ Chí Minh",
+    "mapUrl": "https://maps.app.goo.gl/QijrcwPN4hTUNow57"
+  },
+  "consultation": {
+    "title": "Liên hệ tư vấn",
+    "content": [
+      "Liên hệ ngay hotline An Thái Khang để được tư vấn về sản phẩm và nhận báo giá.",
+      "Chúng tôi luôn sẵn sàng hỗ trợ, giải đáp nhanh mọi thắc mắc để bạn yên tâm mua hàng."
+    ],
+    "button": "Liên hệ ngay"
+  }
+}

@@ -1,0 +1,31 @@
+const LetterLine = ({
+  width = '24',
+  height = '24',
+  strokeWidth = '1.5',
+  ...props
+}: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      width={width}
+      height={height}
+      fill='none'
+      {...props}
+    >
+      <path
+        d='M2 12C2 8.229 2 6.343 3.172 5.172C4.344 4.001 6.229 4 10 4H14C17.771 4 19.657 4 20.828 5.172C21.999 6.344 22 8.229 22 12C22 15.771 22 17.657 20.828 18.828C19.656 19.999 17.771 20 14 20H10C6.229 20 4.343 20 3.172 18.828C2.001 17.656 2 15.771 2 12Z'
+        stroke='currentColor'
+        strokeWidth={strokeWidth}
+      />
+      <path
+        d='M6 8L8.159 9.8C9.996 11.33 10.914 12.095 12 12.095C13.086 12.095 14.005 11.33 15.841 9.799L18 8'
+        stroke='currentColor'
+        strokeWidth={strokeWidth}
+        strokeLinecap='round'
+      />
+    </svg>
+  );
+};
+
+export default LetterLine;

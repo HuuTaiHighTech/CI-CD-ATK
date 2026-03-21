@@ -1,0 +1,20 @@
+export const ROUTES = {
+  LOGIN: '/login',
+  DASHBOARD: '/',
+  CATEGORIES: '/categories',
+  PRODUCTS: '/products',
+  TOPPRODUCTS: '/top-products',
+  PINPRODUCTS: '/pin-products',
+  POSTS: '/posts',
+  TAGS: '/tags',
+  PARTNERS: '/partners',
+  SOCIALS: '/socials',
+  FEEDBACKS: '/feedbacks',
+  PROJECTS: '/projects',
+  BANNERS: '/banners',
+  BENEFITS: '/benefits',
+  USERS: '/users',
+  SETTINGS: '/settings',
+  CREATE: 'create',
+  ID: ':id'
+};
