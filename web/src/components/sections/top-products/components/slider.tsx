@@ -6,9 +6,6 @@ import { ChevronRight } from 'lucide-react';
 import { Link } from '~/components/ui';
 import type { ProductTop } from '~/types';
 import { cn } from '~/lib/utils';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
 
 type Props = {
   cta: string;

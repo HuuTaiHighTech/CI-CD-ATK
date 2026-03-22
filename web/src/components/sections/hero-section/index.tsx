@@ -5,9 +5,6 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { bannerService } from '~/services';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
 
 function HeroSection() {
   const [images, setImages] = useState<string[]>([]);

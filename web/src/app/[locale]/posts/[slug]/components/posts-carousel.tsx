@@ -5,8 +5,6 @@ import { Navigation } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Post } from '~/components/cards';
 import type { PostSummary } from '~/types';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import { useLocale } from '~/context/locale-context';
 import { formatDate } from '~/lib/date';
 

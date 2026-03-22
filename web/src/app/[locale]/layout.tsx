@@ -11,6 +11,12 @@ import { isLocale } from '~/lib/locale';
 import { cn } from '~/lib/utils';
 import { i18n, type Locale } from '~/i18n';
 import { env } from '~/config';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import 'swiper/css/free-mode';
+import 'swiper/css/thumbs';
 import '~/app/globals.css';
 
 type Props = Readonly<{

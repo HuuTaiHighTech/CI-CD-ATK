@@ -5,8 +5,6 @@ import { Navigation } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '~/components/cards';
 import type { ProductSummary } from '~/types';
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 type Props = {
   products: ProductSummary[];
