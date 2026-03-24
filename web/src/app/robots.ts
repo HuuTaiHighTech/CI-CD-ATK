@@ -1,10 +1,7 @@
 import { type MetadataRoute } from 'next';
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://anthaikhang.com';
+import { getSiteUrl } from '~/lib/site';
 
 function robots(): MetadataRoute.Robots {
-  const baseUrl = BASE_URL.replace(/\/$/, '');
-
   return {
     rules: [
       {
@@ -13,7 +10,7 @@ function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/api']
       }
     ],
-    sitemap: `${baseUrl}/sitemap.xml`
+    sitemap: `${getSiteUrl()}/sitemap.xml`
   };
 }
 

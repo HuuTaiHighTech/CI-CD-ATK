@@ -115,7 +115,7 @@ npm run prisma:studio        # Open Prisma Studio GUI
 | `NODE_ENV`             | ✓        | `development` / `test` / `production`            |
 | `BASE_URL`             | ✓        | API base URL (server-side)                       |
 | `NEXT_PUBLIC_BASE_URL` | ✓        | API base URL (client-side)                       |
-| `NEXT_PUBLIC_SITE_URL` | ✓        | Public site URL                                  |
+| `NEXT_PUBLIC_SITE_URL` |          | Public site URL                                  |
 | `NEXT_PUBLIC_GA_ID`    |          | Google Analytics measurement ID (`G-XXXXXXXXXX`) |
 
 ---
