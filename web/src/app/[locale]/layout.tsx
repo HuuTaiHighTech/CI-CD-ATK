@@ -18,6 +18,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import '~/app/globals.css';
+import { getSiteUrl } from '~/lib/site';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       default: env.APP_NAME
     },
     description: dictionary.description,
-    metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
+    metadataBase: new URL(getSiteUrl()),
     keywords: [
       'ATK',
       'An Thái Khang',

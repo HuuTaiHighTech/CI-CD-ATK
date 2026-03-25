@@ -1,13 +1,12 @@
 import { MetadataRoute } from 'next';
 import { i18n } from '~/i18n';
+import { getSiteUrl } from '~/lib/site';
 import {
   categoryService,
   postService,
   productService,
   tagService
 } from '~/services';
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://anthaikhang.com';
 
 const ROUTES = [
   '',
@@ -53,13 +52,13 @@ async function fetchPages<T>(
 }
 
 async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = BASE_URL.replace(/\/$/, '');
+  const siteUrl = getSiteUrl();
   const { locales } = i18n;
 
   const categories = await categoryService.get();
   const categoryUrls: MetadataRoute.Sitemap = categories.flatMap((c) =>
     locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/categories?tab=${c.slug}`,
+      url: `${siteUrl}/${locale}/categories?tab=${c.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9
@@ -69,7 +68,7 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const products = await fetchPages((params) => productService.get(params));
   const productUrls: MetadataRoute.Sitemap = products.flatMap((p) =>
     locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/products/${p.slug}`,
+      url: `${siteUrl}/${locale}/products/${p.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7
@@ -79,7 +78,7 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await fetchPages((params) => postService.get(params));
   const postUrls: MetadataRoute.Sitemap = posts.flatMap((p) =>
     locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/posts/${p.slug}`,
+      url: `${siteUrl}/${locale}/posts/${p.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7
@@ -89,7 +88,7 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tags = await tagService.getHot();
   const tagUrls: MetadataRoute.Sitemap = tags.flatMap((t) =>
     locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/tags/${t.slug}`,
+      url: `${siteUrl}/${locale}/tags/${t.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.6
@@ -98,7 +97,7 @@ async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticUrls: MetadataRoute.Sitemap = ROUTES.flatMap((route) =>
     locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/${route}`,
+      url: `${siteUrl}/${locale}/${route}`,
       lastModified: new Date(),
       changeFrequency: route === '' ? 'daily' : 'weekly',
       priority: route === '' ? 1 : 0.8
