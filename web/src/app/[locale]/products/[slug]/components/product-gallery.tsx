@@ -19,7 +19,7 @@ function ProductGallery({ name, images }: Props) {
   return (
     <>
       <div className='flex-1 h-fit grid grid-cols-12 gap-3'>
-        <div className='col-span-3 space-y-3'>
+        <div className='col-span-4 space-y-3'>
           {images.map((img, index) => (
             <button
               key={index}
@@ -44,7 +44,7 @@ function ProductGallery({ name, images }: Props) {
             </button>
           ))}
         </div>
-        <div className='relative col-span-9 w-full aspect-2/3 flex justify-center rounded-xl overflow-hidden'>
+        <div className='relative col-span-8 w-full aspect-2/3 flex justify-center rounded-xl overflow-hidden'>
           <Image
             src={images[activeIndex]}
             alt={name}
