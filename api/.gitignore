@@ -2,10 +2,13 @@
 node_modules/
 
 # Environment
-#.env
-.env.*
+!.env
+!.env.*
 !.env.example
-
+.env
+api/.env
+admin/.env
+web/.env
 # Build output
 dist/
 build/
