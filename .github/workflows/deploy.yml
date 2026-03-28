@@ -20,21 +20,21 @@ jobs:
 
     # ===== API =====
     - name: Build API image
-      run: docker build -t taipro573467/atk-api:latest ./atk-api
+      run: docker build -t taipro573467/atk-api:latest .
 
     - name: Push API image
       run: docker push taipro573467/atk-api:latest
 
     # ===== WEB =====
     - name: Build WEB image
-      run: docker build -t taipro573467/atk-web:latest ./atk-web
+      run: docker build -t taipro573467/atk-web:latest .
 
     - name: Push WEB image
       run: docker push taipro573467/atk-web:latest
 
     # ===== ADMIN =====
     - name: Build ADMIN image
-      run: docker build -t taipro573467/atk-admin:latest ./atk-admin
+      run: docker build -t taipro573467/atk-admin:latest .
 
     - name: Push ADMIN image
       run: docker push taipro573467/atk-admin:latest
