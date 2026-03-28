@@ -7,64 +7,31 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Login Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Login Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Build & Push API (Thư mục ./api)
-      - name: Build and Push API
-        run: |
-          docker build -t taipro573467/atk-api:latest ./api
-          docker push taipro573467/atk-api:latest
-          
-      # Build & Push WEB (Thư mục ./web)
-      - name: Build and Push WEB
-        run: |
-          docker build -t taipro573467/atk-web:latest ./web
-          docker push taipro573467/atk-web:latest
-          
-      # Build & Push ADMIN (Thư mục ./admin)
-      - name: Build and Push ADMIN
-        run: |
-          docker build -t taipro573467/atk-admin:latest ./admin
-          docker push taipro573467/atk-admin:latest
+    # ===== API (Thư mục ./api) =====
+    - name: Build API image
+      run: |
+        docker build -t taipro573467/atk-api:latest ./api
+        docker push taipro573467/atk-api:latest
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-push
-    steps:
-      - name: Deploy to VPS via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            # Login Docker Hub trên VPS
-            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+    # ===== WEB (Thư mục ./web) =====
+    - name: Build WEB image
+      run: |
+        docker build -t taipro573467/atk-web:latest ./web
+        docker push taipro573467/atk-web:latest
 
-            # Pull image mới nhất về
-            docker pull taipro573467/atk-api:latest
-            docker pull taipro573467/atk-web:latest
-            docker pull taipro573467/atk-admin:latest
-
-            # Restart API (Khớp port 3000:3000)
-            docker stop atk-api || true && docker rm atk-api || true
-            docker run -d --name atk-api -p 3000:3000 taipro573467/atk-api:latest
-
-            # Restart WEB (Khớp port 8080:3000)
-            docker stop dashboard-web || true && docker rm dashboard-web || true
-            docker run -d --name dashboard-web -p 8080:3000 taipro573467/atk-web:latest
-
-            # Restart ADMIN (Khớp port 5173:80)
-            docker stop dashboard-admin || true && docker rm dashboard-admin || true
-            docker run -d --name dashboard-admin -p 5173:80 taipro573467/atk-admin:latest
-
-            # Dọn dẹp các image cũ để tránh đầy ổ cứng
-            docker image prune -f
+    # ===== ADMIN (Thư mục ./admin) =====
+    - name: Build ADMIN image
+      run: |
+        docker build -t taipro573467/atk-admin:latest ./admin
+        docker push taipro573467/atk-admin:latest
