@@ -19,19 +19,25 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     # ===== API (Thư mục ./api) =====
-    - name: Build API image
+    - name: Build and Push API
       run: |
+        # Tạo file .env giả để tránh lỗi "not found" khi Docker build
+        touch ./api/.env
         docker build -t taipro573467/atk-api:latest ./api
         docker push taipro573467/atk-api:latest
 
     # ===== WEB (Thư mục ./web) =====
-    - name: Build WEB image
+    - name: Build and Push WEB
       run: |
+        # Tạo file .env giả nếu Dockerfile của WEB cũng yêu cầu
+        touch ./web/.env
         docker build -t taipro573467/atk-web:latest ./web
         docker push taipro573467/atk-web:latest
 
     # ===== ADMIN (Thư mục ./admin) =====
-    - name: Build ADMIN image
+    - name: Build and Push ADMIN
       run: |
+        # Tạo file .env giả nếu Dockerfile của ADMIN cũng yêu cầu
+        touch ./admin/.env
         docker build -t taipro573467/atk-admin:latest ./admin
         docker push taipro573467/atk-admin:latest
