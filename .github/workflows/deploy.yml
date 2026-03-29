@@ -21,8 +21,6 @@ jobs:
     # ===== API (Thư mục ./api) =====
     - name: Build and Push API
       run: |
-        # Tạo file .env giả để tránh lỗi "not found" khi Docker build
-        touch ./api/.env
         docker build -t taipro573467/atk-api:latest ./api
         docker push taipro573467/atk-api:latest
 
